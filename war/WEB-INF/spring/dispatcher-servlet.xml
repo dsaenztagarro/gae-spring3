@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Maps flow requests from DispatcherServlet to flowController -->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<value>
+				/shopping.htm=flowController
+			</value>
+		</property>
+		<property name="alwaysUseFullPath" value="true" />
+	</bean>
+
+	<!-- Spring Mobile Configuration -->
+	<mvc:interceptors>
+	    <!-- On pre-handle, resolve the device that originated the web request -->
+	    <bean class="org.springframework.mobile.device.DeviceResolverHandlerInterceptor" />
+	</mvc:interceptors>
+
+	<mvc:annotation-driven>
+		<mvc:argument-resolvers>
+        	<bean class="org.springframework.mobile.device.DeviceWebArgumentResolver" />
+    	</mvc:argument-resolvers>	
+	</mvc:annotation-driven>
+	
+</beans>

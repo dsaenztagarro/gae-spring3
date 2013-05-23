@@ -1,0 +1,64 @@
+/*.mnav li strong {
+    box-shadow: 0 -24px 30px rgba(255, 255, 255, 0.1) inset;
+    color: #000000;
+}*/
+
+.active {
+	background: #686868;
+	color: white;
+}
+
+.selected {
+	background: #9a9a9a;
+	color: #e7e7e7;	
+}
+
+#sitenav {
+	box-shadow: 0 0 5px 5px #888;
+	-webkit-box-shadow: 0 0 5px 5px #888;	
+	-moz-box-shadow: 0 0 5px 5px #888;
+}
+
+.mnav ul { 
+	margin: 0px
+}
+
+.mnav li {
+	padding: 5px 15px 5px 15px;
+	width: 60px;
+    -moz-transition: background-color 0.1s linear 0s;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    display: block;
+    line-height: 1em;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.mnav li span {
+	color: black;
+	text-transform: none;
+	font-weight: normal;
+	font-size: 90%;
+}
+
+.mnav li.active span {
+	color: white;
+	text-transform: none;
+	font-weight: normal;
+	font-size: 90%;
+}
+
+.mnav li a {
+	color: black;
+	font-weight: bold;
+}
+
+.mnav li a:over {
+	color: grey;
+	background: transparent;	
+}
+
+strong, b {
+    font-weight: bold;
+}

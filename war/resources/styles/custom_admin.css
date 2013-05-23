@@ -1,0 +1,146 @@
+/* MENU admin/admin_left.jsp */
+
+body {
+    background: none repeat scroll 0 0 #32373D;
+    font-size: 100%;
+}
+a {
+    text-decoration: none;
+}
+ul, ul ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+#wrapper {
+    font-size: 0.8125em;
+    margin: 100px auto;
+    width: 220px;
+}
+.menu {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.73), 0 0 18px 0 rgba(0, 0, 0, 0.13);
+    height: auto;
+    width: auto;
+}
+.menu > li > a {
+    background-color: #616975;
+    background-image: -moz-linear-gradient(center top , #727A86, #505864);
+    border-bottom: 1px solid #33373D;
+    box-shadow: 0 1px 0 0 #878E98 inset;
+    color: #FFFFFF;
+    display: block;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    height: 2.75em;
+    line-height: 2.75em;
+    position: relative;
+    text-indent: 2.75em;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+.menu ul li a {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #EFEFF0;
+    color: #878D95;
+    display: block;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 0.923em;
+    font-weight: 400;
+    height: 2.75em;
+    line-height: 2.75em;
+    position: relative;
+    text-indent: 2.75em;
+    width: 100%;
+}
+.menu ul li:last-child a {
+    border-bottom: 1px solid #33373D;
+}
+.menu > li > a:hover, .menu > li > a.active {
+    background-color: #35AFE3;
+    background-image: -moz-linear-gradient(center top , #45C7EB, #2698DB);
+    border-bottom: 1px solid #103C56;
+    box-shadow: 0 1px 0 0 #6AD2EF inset;
+}
+.menu > li > a.active {
+    border-bottom: 1px solid #1A638F;
+}
+.menu > li > a:before {
+    background-image: url("../images/sprite.png");
+    background-repeat: no-repeat;
+    content: "";
+    font-size: 36px;
+    height: 1em;
+    left: 0;
+    margin: -0.5em 0 0;
+    position: absolute;
+    top: 50%;
+    width: 1em;
+}
+.item1 > a:before {
+    background-position: 0 0;
+}
+.item2 > a:before {
+    background-position: -38px 0;
+}
+.item3 > a:before {
+    background-position: 0 -38px;
+}
+.item4 > a:before {
+    background-position: -38px -38px;
+}
+.item5 > a:before {
+    background-position: -76px 0;
+}
+.menu > li > a span {
+    background: none repeat scroll 0 0 #48515C;
+    border-radius: 0.769em 0.769em 0.769em 0.769em;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.26) inset, 0 1px 0 0 rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 0.857em;
+    font-weight: 500;
+    height: 1em;
+    line-height: 1em;
+    margin: -0.8em 0 0;
+    padding: 0.4em 0.6em;
+    position: absolute;
+    right: 1em;
+    text-align: center;
+    text-indent: 0;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    top: 50%;
+}
+.menu > li > a:hover span, .menu > li a.active span {
+    background: none repeat scroll 0 0 #2173A1;
+}
+.menu > li > ul li a:before {
+    color: #BCBCBF;
+    content: "▶";
+    font-size: 8px;
+    height: 1em;
+    left: -2.7em;
+    position: absolute;
+    top: 0;
+    width: 1em;
+}
+.menu > li > ul li:hover a, .menu > li > ul li:hover a span, .menu > li > ul li:hover a:before {
+    color: #32373D;
+}
+.menu ul > li > a span {
+    border: 1px solid #D0D0D3;
+    border-radius: 769em 769em 769em 769em;
+    color: #878D95;
+    display: inline-block;
+    font-size: 0.857em;
+    height: 1em;
+    line-height: 1em;
+    margin: -0.9em 0 0;
+    padding: 0.4em 0.7em;
+    position: absolute;
+    right: 1em;
+    text-align: center;
+    text-indent: 0;
+    top: 50%;
+}
+
+/* MENU index.jsp */

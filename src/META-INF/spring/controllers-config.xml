@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Scans within the base package of the application for @Components to configure as beans -->
+	<context:component-scan base-package="com.davlanca.pets"/>
+ 	
+	<!-- 
+	<bean name="*admin.htm" class="com.davlanca.pets.controllers.AdminController" >
+		<property name="mode" value="AdminMode" />
+	</bean>
+	
+	<bean name="/commerce.htm" class="com.davlanca.pets.controllers.petsController" >
+		<property name="mode" value="CommerceMode" />
+	</bean>
+	
+	<bean id="userService" class="com.davlanca.pets.services.UserServiceImpl" />
+	
+	<bean name="/createuser.htm" class="com.davlanca.pets.controllers.UserController" 
+		p:userService-ref="userService" p:formView="user/user_form" p:successView="user/user_success">
+	</bean>
+	-->
+	
+	<!-- 
+	<bean id="loggingAspect" class="com.davlanca.pets.aspect.LoggingAspect" />
+	 -->
+	<bean id="userService" class="com.davlanca.pets.service.UserServiceImpl" />
+	<bean id="petService" class="com.davlanca.pets.service.PetServiceImpl" />
+	<bean id="userPetService" class="com.davlanca.pets.service.UserPetServiceImpl" />
+	
+	<bean id="userValidator" class="com.davlanca.pets.service.validator.UserAdministrationValidator" />
+	
+	<!-- autowire="byType/byName" -->
+	<bean name="/createuser.htm" class="com.davlanca.pets.controller.UserController">
+		<property name="userService" ref="userService" />
+		<property name="validator" ref="userValidator" />
+		<property name="formView" value="user/user_form" />
+		<property name="successView" value="user/user_success" />
+	</bean>
+	
+	<bean name="/register.htm" class="com.davlanca.pets.controller.RegisterWizardController">
+		<property name="pages">
+		    <list>
+				<value>register/register_wizard_page1</value> <!-- page1, _target0 -->
+				<value>register/register_wizard_page2</value> <!-- page2, _target1 -->
+				<value>register/register_wizard_page3</value> <!-- page3, _target2 -->
+			</list>
+		</property>
+		<property name="registerWizardSuccessView" value="register/register_wizard_success" />
+		<property name="validator">
+			<bean class="com.davlanca.pets.service.validator.RegisterWizardValidator" />
+	   </property>		
+	</bean>
+	
+	<bean name="/main/*" class="com.davlanca.pets.controller.MainController">
+		<property name="methodNameResolver" > 
+			<bean
+				class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+				<property name="mappings">
+					<props>
+						<prop key="/main/register.htm">goToRegister</prop>
+						<prop key="/main/index.htm">goToHome</prop>
+						<prop key="/main/news.htm">goToNews</prop>
+						<prop key="/main/pets.htm">goToPets</prop>
+					</props>
+				</property>
+			</bean>			
+		</property>
+		<property name="indexView" value="index" />	
+		<property name="registerView" value="news/main.htm" />
+		<property name="petsView" value="pet/pet_list" />
+		<property name="newsView" value="news/news_list" />
+	</bean>	
+
+	<bean name="/admin/*" class="com.davlanca.pets.controller.AdminController">
+		<property name="methodNameResolver" > 
+			<bean
+				class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+				<property name="mappings">
+					<props>
+						<prop key="/admin/left.htm">goToLeft</prop>
+					</props>
+				</property>
+			</bean>			
+		</property>
+		<property name="leftView" value="admin/left" />	
+	</bean>	
+	
+</beans>
